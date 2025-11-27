@@ -1,0 +1,78 @@
+import { useState, useEffect } from 'react';
+import SearchBar from './components/SearchBar';
+import WeatherCard from './components/WeatherCard';
+import './App.css';
+
+function App() {
+  const [city, setCity] = useState('');
+  const [weatherData, setWeatherData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const API_KEY = '47232645875975c95eb80b5530e4c8de';
+
+  const fetchWeather = async (cityName) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`
+      );
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'City not found');
+      }
+
+      setWeatherData(data);
+      setCity(cityName);
+    } catch (err) {
+      setError(err.message);
+      setWeatherData(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchWeather('Toronto'); // default city
+  }, []);
+
+  return (
+    <div className="App">
+      <div className="main-content">
+        <div className="container">
+          <h1 className="app-title">Weather App</h1>
+          {city && <p className="current-city">Showing: {city}</p>}
+
+          <SearchBar onSearch={fetchWeather} />
+
+          {loading && <p className="loading">Loading...</p>}
+
+          {error && (
+            <div className="error">
+              <p><strong>Error:</strong> {error}</p>
+              {error.includes('Invalid API key') && (
+                <div className="error-help">
+                  <p>
+                    Check your API key: <a href="https://home.openweathermap.org/api_keys" target="_blank" rel="noopener noreferrer">OpenWeather API</a>
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {weatherData && !loading && <WeatherCard city={city} data={weatherData} />}
+        </div>
+      </div>
+
+      <footer className="app-footer">
+        <p className="student-name">Henil Patel</p>
+        <p className="student-id">101511850</p>
+      </footer>
+    </div>
+  );
+}
+
+export default App;

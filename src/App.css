@@ -1,0 +1,93 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #3b4570;
+  color: white;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.app-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.current-city {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: #dcdcdc;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #8ab4f8;
+  color: white;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background: #6a92d0;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.weather-header h2 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.temp {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.details p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.app-footer {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #ccc;
+  text-align: center;
+}
