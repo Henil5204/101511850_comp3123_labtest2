@@ -1,187 +1,147 @@
-# Weather App - COMP3123 Lab Test 2
+Here’s the **full updated README.md** with **file paths for screenshots included**:
 
-**Student Name:** Prabesh Shrestha  
-**Student ID:** 101538718  
-**Course:** COMP3123 - Full Stack Development  
-**Date:** November 27, 2024
+***
 
----
+# 🌦️ COMP3123 Lab Test 2 — Weather Lookup System
 
-## 📖 Project Overview
+**Student:** Henil Patel  
+**Student ID:** 101511850  
+**Course:** COMP3123 – Full Stack Development  
+**Date:** November 27, 2025
 
-A modern React weather application that displays real-time weather information for cities worldwide using the OpenWeatherMap API. The app features a beautiful glassmorphism UI design with smooth animations and a fully responsive layout.
+***
 
----
+## 📚 Project Summary
 
-## ✨ Features
+This project is a functional **Weather Lookup System** built with **React**. It connects to the **OpenWeatherMap API** to fetch real-time weather information. The design emphasizes **clarity, reliability, and ease of use** over animations or complex UI elements.
 
-- 🔍 Search weather by city name
-- 🌡️ Display current temperature with min/max values
-- 💨 Show detailed weather information (humidity, pressure, wind speed)
-- ☀️ Dynamic weather icons
-- 🎨 Modern glassmorphism UI design
-- 📱 Fully responsive layout
-- ⚡ Real-time weather updates
-- ⚠️ Error handling with user-friendly messages
+***
 
----
+## 🧩 Core Capabilities
 
-## 🛠️ Technologies Used
+*   Search for weather by **city name**
+*   Display **temperature, humidity, wind speed, and conditions**
+*   Show **weather icons** based on API response
+*   Handle **error states** for invalid or empty searches
+*   Load **default city weather** on startup
 
-- **React** (Hooks: useState, useEffect)
-- **JavaScript (ES6+)**
-- **CSS3** (Glassmorphism effects, animations)
-- **OpenWeatherMap API**
-- **Create React App**
+***
 
----
+## 🧱 Technology Framework
 
-## 📸 Application Screenshots
+### **Frontend Stack**
 
-### Home Screen - Default View (Toronto)
-![Home Screen](./screenshots/home.png)
+*   **React** – Component-based architecture
+*   **JavaScript (ES6)** – Logic and API communication
+*   **CSS** – Responsive styling
 
-### Search Functionality - City Search
-![Search Feature 1](./screenshots/search.png)
+### **External API**
 
-### Search Results - Different City
-![Search Feature 2](./screenshots/search2.png)
+*   **OpenWeatherMap – Current Weather Endpoint**
+    *   Format: JSON
+    *   Units: Metric
+    *   Method: HTTP GET
 
----
+Example Endpoint:
 
-## 📁 Project Structure
+    https://api.openweathermap.org/data/2.5/weather?q=<CITY>&appid=<API_KEY>
 
-```
-101538718_comp3123_labtest2/
-├── public/
-│   ├── index.html
-│   ├── favicon.ico
-│   └── manifest.json
-├── src/
-│   ├── components/
-│   │   ├── SearchBar.jsx      # Search input component
-│   │   └── WeatherCard.jsx    # Weather display component
-│   ├── App.js                  # Main application
-│   ├── App.css                 # Styles with glassmorphism
-│   ├── index.js                # Entry point
-│   └── index.css               # Global styles
-├── screenshots/                # Application screenshots
-├── package.json
-└── README.md
-```
+***
 
----
 
-## Installation & Setup
+## 🖼️ Screenshots
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm package manager
+### **1. Localhost Running Application**
 
-### Steps to Run
+!Localhost Screenshot  
+**File Path:** `screenshots/localhost.png`
 
-1. **Clone the repository**
+***
+
+### **2. API Testing with Postman**
+
+!Postman Testing Screenshot  
+**File Path:** `screenshots/postman_testing.png`
+
+***
+
+### **3. Deployment on Vercel**
+
+!Vercel Hosting Screenshot  
+**File Path:** `screenshots/vercel_hosting.png`
+
+***
+
+## ⚙️ Running the Application
+
+### **1. Clone the repository**
+
 ```bash
-git clone <repository-url>
-cd 101538718_comp3123_labtest2
+git clone https://github.com/Henil5204/101511850_comp3123_labtest2
+cd 101511850_comp3123_labtest2
 ```
 
-2. **Install dependencies**
+### **2. Install dependencies**
+
 ```bash
 npm install
 ```
 
-3. **Start development server**
+### **3. Start the development server**
+
 ```bash
 npm start
 ```
 
-The app will open at [http://localhost:3000](http://localhost:3000)
+Runs at: **<http://localhost:3000/>**
 
-4. **Build for production**
+### **4. Build for production**
+
 ```bash
 npm run build
 ```
 
----
+***
 
-## 🌐 API Integration
+## 🧠 React Concepts Used
 
-**API Used:** OpenWeatherMap Current Weather Data API
+*   **State Management (useState)**  
+    Stores user input, API response, and error/loading states.
 
-- **Endpoint:** `https://api.openweathermap.org/data/2.5/weather`
-- **Documentation:** [OpenWeatherMap Docs](https://openweathermap.org/current)
-- **Data Format:** JSON
-- **Units:** Metric (Celsius, m/s)
+*   **Side Effects (useEffect)**  
+    Fetches default city weather on initial load.
 
-### API Response Data:
-- Current temperature
-- Min/Max temperature
-- Feels like temperature
-- Weather condition and description
-- Humidity percentage
-- Atmospheric pressure
-- Wind speed
-- Weather icons
+*   **Async API Handling**  
+    Uses `async/await` with `try/catch` for error control.
 
----
+*   **Component Responsibilities**
+    *   **SearchBar** → Handles input and submission
+    *   **WeatherCard** → Displays weather info
 
-## 🎯 React Concepts Implemented
+***
 
-### State Management (useState)
-- `city` - Current city name
-- `weatherData` - API response data
-- `loading` - Loading state
-- `error` - Error messages
+## 🎨 Design Characteristics
 
-### Side Effects (useEffect)
-- Fetches Toronto weather on initial load
-- Dependency array ensures single execution
+*   Clean, minimal layout
+*   Clear spacing for readability
+*   Light borders and soft shadows
+*   Mobile-friendly responsive design
 
-### Component Architecture
-- **SearchBar** - Handles city search input
-- **WeatherCard** - Displays weather information
-- Props passed between parent and child components
+***
 
-### Key Features
-- Async/await for API calls
-- Conditional rendering (loading, error, data states)
-- Form handling with event prevention
-- Error handling with try-catch blocks
+## 👨‍💻 Author Information
 
----
-
-## 🎨 Design Highlights
-
-### Glassmorphism Effect
-- Backdrop blur filters
-- Semi-transparent backgrounds
-- Layered shadows for depth
-- Smooth hover animations
-
-### Responsive Design
-- Mobile-first approach
-- Flexible layouts with Flexbox
-- Media queries for different screen sizes
-- Touch-friendly interface
-
-### Color Scheme
-- Background: Navy gradient (#1a1f36 → #3d4b7d)
-- Accent: Light blue (#8ab4f8)
-- Text: White with opacity variations
-
----
-
-
-## 👨‍💻 Author
-
-**Prabesh Shrestha**  
-Student ID: 101538718  
+**Henil Patel**  
+Student ID: 101511850  
 George Brown College  
-COMP3123 - Full Stack Development
+COMP3123 – Full Stack Development
 
----
+***
 
+**Last Updated:** November 27, 2025
 
-**Last Updated:** November 27, 2024
-# 101511850_comp3123_labtest2
+***
+
+✅ This README now includes **file paths for screenshots**, making it clear for anyone browsing the repository.
+
+***
